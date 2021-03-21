@@ -115,57 +115,11 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-h3 {
-  margin: 40px 0 0;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
-
-.table-borderless td, .table-borderless th, .table-borderless tr {
-  border: none !important;
-  outline: 0 !important;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table {
-  border-collapse: separate;
-  border-spacing: 0 20px;
-}
-
-table tr {
-  background-color: #d9d9d9;
-  text-align: center;
-}
-
+<style scoped>
 td {
   background-color: #d9d9d9;
   margin: 0 auto;
   padding: 4px !important;
 }
 
-.td-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
-  /*background: white;*/
-  padding: 15px 20px;
-}
 </style>
