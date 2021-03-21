@@ -9,7 +9,7 @@
       <b-form @submit="onSubmit">
         <b-form-group
             id="input-group-1"
-            label="Descricao:"
+            label="Descrição:"
             label-for="input-1"
         >
           <b-form-input
@@ -63,7 +63,7 @@ export default {
       //c para criar e para editar
       typeForm: 'c',
       labelHeader: ({c:"Criar Tarefa", e:"Editar tarefa"}),
-      labelSuccess: ({c:"Usuario Inserido com sucesso", e:"Usuario Editado com sucesso"}),
+      labelSuccess: ({c:"Tarefa inserida com sucesso", e:"Tarefa editada com sucesso"}),
       taskID: this.$route.params.id,
       form: {
         description: '',
@@ -77,9 +77,6 @@ export default {
   methods: {
     setLoad() {
       this.onLoad()
-    },
-    onLoad() {
-      console.log(this.labelHeader[this.typeForm])
     },
     onSubmit(event) {
       event.preventDefault()
@@ -105,7 +102,6 @@ export default {
         }).catch(err =>{
           console.log(err)
         })
-        console.log(formData)
       }
       else if(this.typeForm === 'e'){
         let params = {
@@ -140,7 +136,6 @@ export default {
   mounted() {
     if (this.$route.params.id) {
       this.typeForm ='e'
-      console.log(this.typeForm)
       app.get('task/' + this.$route.params.id).then(res => {
         if (res.data) {
           this.form.description = res.data.description
@@ -150,7 +145,6 @@ export default {
       })
     }
     app.get('task-types').then(res => {
-      console.log(res.data)
       for (let i = 0; i < res.data.length; i++) {
         this.task_types.push({text: res.data[i].name, value: res.data[i].id})
       }

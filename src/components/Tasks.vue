@@ -109,7 +109,6 @@ export default {
         this.selected = item.id
         this.actionType='e'
       }
-      console.log(this.selected, item)
     },
     setChecked(id = null) {
       if (id) {
@@ -159,14 +158,12 @@ export default {
       app.get('tasks').then(res => {
         this.items.push(...res.data)
         this.filteredItems = this.items
-        console.log(this.items)
       })
     },
     getFilter(e){
        this.filteredItems = [];
        if(e){
          for (let i =0; i< this.items.length; i++){
-           console.log(this.items[i].id === e, this.items[i].id,e)
            if(this.items[i].type_id.id === e)
              this.filteredItems.push(this.items[i])
          }
@@ -179,7 +176,6 @@ export default {
   mounted() {
     this.getData()
     app.get('task-types').then(res => {
-      console.log(res.data)
       for (let i = 0; i < res.data.length; i++) {
         this.task_types.push({text: res.data[i].name, value: res.data[i].id})
       }

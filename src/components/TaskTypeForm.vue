@@ -9,7 +9,7 @@
       <b-form @submit="onSubmit">
         <b-form-group
             id="input-group-1"
-            label="Nome:"
+            label="Nome do tipo de tarefa:"
             label-for="input-1"
         >
           <b-form-input
@@ -54,9 +54,6 @@ export default {
     setLoad() {
       this.onLoad()
     },
-    onLoad() {
-      console.log(this.labelHeader[this.typeForm])
-    },
     onSubmit(event) {
       event.preventDefault()
       if (this.typeForm === 'c'){
@@ -76,7 +73,6 @@ export default {
         }).catch(err =>{
           console.log(err)
         })
-        console.log(formData)
       }
       else if(this.typeForm === 'e'){
         let params = {
@@ -109,7 +105,6 @@ export default {
   mounted() {
     if (this.$route.params.id) {
       this.typeForm ='e'
-      console.log(this.typeForm)
       app.get('/task-type/' + this.$route.params.id).then(res => {
         if (res.data) {
           this.form.name = res.data.name

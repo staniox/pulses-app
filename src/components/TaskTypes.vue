@@ -65,7 +65,6 @@ export default {
         this.selected = item.id
         this.actionType='e'
       }
-      console.log(this.selected, item)
     },
     deleteTask(id) {
       if (id) {
@@ -105,7 +104,6 @@ export default {
       this.items = []
       app.get('task-types').then(res => {
         this.items.push(...res.data)
-        console.log(this.items)
       })
     }
   },
